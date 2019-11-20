@@ -1,0 +1,131 @@
+<form>
+        <div class="form-group" align="center">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                  <label for="fromDate" >Screen</label>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <select [(ngModel)]="inq.screen" name="screen">
+                        <!--><option selected value="">Select screen</option>
+                        <option *ngFor="let screen of inq.screenList" value= {{screen.code}}>
+                         {{screen.value}}
+                        </option>
+                        <option selected value="">Select screen</option>
+                        <option *ngFor="let screen of inq.screenList;trackBy:identify" value= "screen.code">-->
+                                <option selected [value]="">Select screen</option>
+                                <option *ngFor="let screen of inq.screenList" [value]= "screen.code">
+                         {{screen.value}}
+                        </option>
+                    </select> 
+                </div>
+        </div>
+    <div class="form-group" align="center">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <label for="fromDate" >From Date</label>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="input-group">
+                <input class="form-control" [readonly]="true" [footerTemplate]="fromDateFooterTemplate"
+                       name="fromDate" [(ngModel)]="inq.fromDate" ngbDatepicker #fromDate="ngbDatepicker"
+                       (ngModelChange)="onChangeFromDate()"
+                       [maxDate]="inq.fromMaxDate" [minDate]="inq.fromMinDate">
+                <div class="input-group-append">
+                  <!--<button class="btn btn-outline-secondary calendar" (click)="openFromDate(fromDate)" type="button">-->
+                        <button class="btn btn-outline-secondary calendar" (click)="fromDate.toggle()" type="button">
+                      <!--<span class="icon-Calendar sm-ic"></span>-->
+                      <i class="fa fa-calendar"></i>
+                  </button>
+                </div>
+              </div>
+              <ng-template #fromDateFooterTemplate>
+                <hr class="my-0">
+                <button class="btn btn-primary btn-sm m-2 float-left" (click)="inq.fromDate = ''; fromDate.close()">Clear</button>
+                <button class="btn btn-secondary btn-sm m-2 float-right" (click)="fromDate.close()">Close</button>
+              </ng-template>
+          </div>
+         
+        </div>
+      
+        <div class="form-group" align="center">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+              <label for="toDate" >To Date</label>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <div class="input-group">
+                    <input class="form-control" [readonly]="true" [footerTemplate]="toDatefooterTemplate"
+                           name="toDate" [(ngModel)]="inq.toDate" ngbDatepicker #toDate="ngbDatepicker"
+                           (ngModelChange)="onChangeToDate()"
+                           [maxDate]="inq.toMaxDate" [minDate]="inq.toMinDate">
+                    <div class="input-group-append">
+                     <!-- <button class="btn btn-outline-secondary calendar" (click)="openToDate(toDate)" type="button">-->
+                     <button class="btn btn-outline-secondary calendar" (click)="toDate.toggle()" type="button">
+                        <i class="fa fa-calendar"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <ng-template #toDatefooterTemplate>
+                    <hr class="my-0">
+                    <button class="btn btn-primary btn-sm m-2 float-left" (click)="inq.toDate = ''; toDate.close()">Clear</button>
+                    <button class="btn btn-secondary btn-sm m-2 float-right" (click)="toDate.close()">Close</button>
+                  </ng-template>
+              </div>
+              
+            </div>
+
+            <div class="form-group" align="center">
+                <button type="button" class="btn btn-primary" (click) ="search()">Search</button>
+                <button type="button" class="btn btn-default fis-rwd-btn-default" (click)="clearSearch()">Clear</button>
+    </div>
+
+    <div class="panel panel-primary" *ngIf= "inq.showResultSection">
+		<div class="panel-heading">Search results</div>
+		<div class="panel-body">
+                <div class="table-responsive">
+                        <table class="table table-bordered">
+                                <colgroup>
+                                    <col width="1%">
+                                    <col width="12%">
+                                    <col width="14%">
+                                    <col width="12%">
+                                    <col width="12%">
+                                    <col width="14%">
+                                    <col width="12%">
+                                    <col width="15%">
+                                </colgroup>
+                                <thead>
+                                        <tr class="header">
+                                                <th style="text-align: center;">SNO</th>
+                                                    <th style="text-align: center">
+                                                       User id
+                                                    </th>
+                                                    <th style="text-align: center">Created Date</th>
+                                                    <th style="text-align: center">Approved Date</th>
+                                                    <th style="text-align:center">Status</th>
+                                                    <th style="text-align: center">Created User</th>
+                                                    <th style="text-align: center">Approved User</th>
+                                                    <th style="text-align: center">Remarks</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr *ngFor="let row of workflowList">
+                                                            <td align="center">{{row.serialNo}}</td>
+                                                            <td align="center">{{row.postedBankId}}</td>
+                                                            <td align="center">{{row.createdDateStr}}</td>
+                                                            <td align="center">{{row.authorisedDateStr}}</td>
+                                                            <td align="center">
+                                                                <div *ngIf = "row.status == 'S'">Approved</div>
+                                                                <div *ngIf = "row.status == 'R'">Rejected</div>
+                                                                <div *ngIf = "row.status == 'A'">Waiting approval</div>
+                                                            </td>
+                                                            <td align="center" >{{row.createdUser}}</td>
+                                                            <td align="center">{{row.authorisedUser}}</td>
+                                                            <td align="center">{{row.remarks}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+
+            
+</form>

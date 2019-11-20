@@ -1,0 +1,36 @@
+
+    <form #loginForm="ngForm">
+    <div class="form-group">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <label for="userid" >User Id</label>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <input type="text" [(ngModel)]="login.userId" #userId="ngModel"
+              id="userId" name="userId" required
+              class="form-control" noSpecialChar="S"
+              maxlength="15" autocomplete="off"
+              placeholder="Enter userid" />
+          </div>
+          <span *ngIf="userId.errors?.required && login.isSubmitted">userid is required</span>
+        </div>
+      
+        <div class="form-group">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+              <label for="pwd" >Pwd</label>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <input type="password" [(ngModel)]="login.pwd" #pwd="ngModel"
+                  id="pwd" name="pwd" required
+                  class="form-control" noSpecialChar (paste)="false"
+                  maxlength="15" autocomplete="off"
+                  placeholder="Enter pwd" />
+              </div>
+              <span *ngIf="pwd.errors?.required && login.isSubmitted">pwd is required</span>
+            </div>
+      
+      <div class="form-group" align="left">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit(loginForm)">Submit</button>
+        <button type="button" class="btn btn-default " (click)="clear()">Clear</button>
+      </div>
+    
+    </form>

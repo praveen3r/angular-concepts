@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-body">
+      <div class="row">
+        <div class="col-xs-11 col-sm-10 col-md-5">
+          <label for="userNameFltr"
+              class="col-xs-12 col-sm-4 col-md-4">
+            User name</label>
+          <div class="col-xs-12 col-sm-8 col-md-8">
+            <input type="text" 
+              id="userNameFltr" name="userNameFltr" maxlength="8" 
+              [ngModel]="userNameFltr" (ngModelChange)="onChangeUserName($event)"
+              class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-xs-1 col-sm-1 col-md-1">
+            <a class="remove-decoration" data-uib-tooltip="Reset" (click)="onClickReset()"
+              data-tooltip-placement="bottom" style="cursor: pointer;">  
+              <i class="fa fa-undo" aria-hidden="true" style="font-size: 25px"></i>
+              <!--<fa name="cog"></fa> 
+              <i class="fa fa-undo" aria-hidden="true" style="font-size: 25px"></i>-->
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <br/><br/>
+  <div class="card">
+      <div class="card-header" >User list
+      </div>
+      <div class="card-body">
+<form class="fis-rwd-form-horizontal" #usrMaintForm="ngForm"
+				enctype="application/x-www-form-urlencoded"
+        autocomplete="off"  novalidate>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+          <colgroup>
+            <col width= "3%;">
+            <col width= "29%;">
+            <col width= "29%;">
+            <col width= "23%;">
+            <col width= "10%;">
+            <col width= "6%;">
+          </colgroup>
+          <thead>
+            <tr class="header">
+                <th style="text-align: center;">SNo</th>
+                  <th style="text-align: center;">user  Id</th>
+                  <th style="text-align: center;">userName</th>
+                  <th style="text-align: center;">Role</th>
+                  <th></th>
+                  <th></th>
+            </tr>
+          </thead>
+          <tbody>
+              <!--<tr>
+									<td align="center" class="ng-binding" colspan="6">No info to display</td>
+                </tr>-->
+                <tr *ngFor="let user of userList">
+                  <td align="center">{{user.serialNo}}</td>
+                  <td align="center">{{user.userId}}</td>
+                  <td align="center">{{user.userName}}</td>
+                  <td align="center">{{user.role}}</td>
+                  <td align="center"><button type="button" class="btn btn-primary"
+                     (click)="onClickModify(user)">Edit</button></td>
+                  <td align="center"></td>
+                 </tr>
+          </tbody>
+        </table>
+      </div>
+</form>
+</div>

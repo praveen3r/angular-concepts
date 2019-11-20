@@ -1,0 +1,30 @@
+<div class="form-group">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <label for="userid" >User Id</label>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+      <input type="text" [(ngModel)]="userData.userId" #userId="ngModel"
+        id="userId" name="userId" 
+        class="form-control" noSpecialChar="S"
+        maxlength="15" autocomplete="off"
+        placeholder="Enter userid" />
+    </div>
+   
+  </div>
+
+  <div class="form-group">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <label for="userName" >User Name</label>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <input type="text" [(ngModel)]="userData.userName" #pwd="ngModel"
+            id="userName" name="userName" 
+            class="form-control" noSpecialChar (paste)="false"
+            maxlength="15" autocomplete="off"
+            placeholder="Enter userName" />
+        </div>
+            </div>
+
+<div class="form-group" align="left">
+  <button type="button" class="btn btn-default " (click)="back()">Back</button>
+</div>
