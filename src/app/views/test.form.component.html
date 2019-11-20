@@ -1,0 +1,17 @@
+<form [formGroup]="testReactiveForm">
+    <div class="form-group">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <label for="userid" >User Id</label>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <input type="text" class="form-control" formControlName="userid"/>
+          </div>
+          <span *ngIf="isSubmitted && testReactiveForm.get('userid').hasError('required')">userid is required</span>
+        </div>
+      
+     <div class="form-group" align="left">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        <button type="button" class="btn btn-default " (click)="clear()">Clear</button>
+      </div>
+    
+    </form>

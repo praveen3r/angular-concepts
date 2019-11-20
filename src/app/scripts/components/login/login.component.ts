@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       this.user = new User();
       this.user.setUserId(this.login.userId);
       this.userService.setUser(this.user);
-      let tabId:any[] = [0,1,2,3];
+      let tabId:any[] = [0,1,2,3,4];
       let menuList:NavLinks[] = this.navigationService.getUserMenuList(tabId);
       let menu:Menu = new Menu();
       menu.setMenuList(menuList);

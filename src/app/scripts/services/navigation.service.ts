@@ -15,6 +15,7 @@ export class NavigationService {
     let userInq:NavLinks = new NavLinks();
     let test:NavLinks = new NavLinks();
     let upload:NavLinks = new NavLinks();
+    let testForm:NavLinks = new NavLinks();
 
     userMaint.setLinkId(0);
     userMaint.setHref("user.home");
@@ -39,6 +40,12 @@ export class NavigationService {
     upload.setDesc("Upload");
     upload.setLinkType("link");
     this.menuList.push(upload);
+
+    testForm.setLinkId(4);
+    testForm.setHref("Form");
+    testForm.setDesc("Form");
+    testForm.setLinkType("link");
+    this.menuList.push(testForm);
 
   }
 

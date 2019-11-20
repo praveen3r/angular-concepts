@@ -6,7 +6,7 @@ import { RootModule, UIRouterModule, Transition } from '@uirouter/angular';
 import { LoginComponent } from './scripts/components/login/login.component';
 import { UserComponent } from './scripts/components/user/user.component';
 import { InqComponent } from './scripts/components/inq/inq.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonDirective } from './scripts/directives/common.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -23,6 +23,7 @@ import { LogoutComponent } from './scripts/components/login/logout.component';
 import { CurrencyFormatPipe } from './scripts/pipes/currency-format.pipe';
 import { UploadComponent } from './scripts/components/upload/upload.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { TestFormComponent } from './scripts/components/testForm/test.form';
 
 
 const rootModule: RootModule = {
@@ -59,6 +60,10 @@ const rootModule: RootModule = {
     {
       name: "upload",
       component: UploadComponent
+    },
+    {
+      name: "Form",
+      component: TestFormComponent
     }
   ],
   otherwise: "/"
@@ -77,7 +82,8 @@ const rootModule: RootModule = {
     UserHomeComponent,
     LogoutComponent,
     CurrencyFormatPipe,
-    UploadComponent
+    UploadComponent,
+    TestFormComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +91,8 @@ const rootModule: RootModule = {
     UIRouterModule.forRoot(rootModule),
     HttpClientModule,
     NgbModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports: [UIRouterModule, TestModalComponent],
   entryComponents: [
