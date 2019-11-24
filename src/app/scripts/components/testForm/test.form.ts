@@ -4,7 +4,7 @@ import { FormsModule, FormBuilder, FormControl, Validators, FormGroup } from '@a
 
 
 @Component({
-  templateUrl: './../../../views/test.form.component.html'
+  templateUrl: './test.form.component.html'
 })
 export class TestFormComponent implements OnInit {
   public testReactiveForm:FormGroup;
