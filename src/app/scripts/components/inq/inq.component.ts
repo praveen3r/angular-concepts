@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @Component({
-  templateUrl: './../../../views/inq.component.html'
+  templateUrl: './inq.component.html'
 })
 export class InqComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { StateService } from '@uirouter/angular';
 import { FormsModule } from '@angular/forms'
 
 @Component({
-  templateUrl: './../../../views/user.component.html'
+  templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {
 

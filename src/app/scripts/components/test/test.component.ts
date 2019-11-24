@@ -5,7 +5,7 @@ import { Transition } from '@uirouter/core';
 import { HttpService } from './../../services/http.service';
 
 @Component({
-  templateUrl: './../../../views/test.component.html'
+  templateUrl: './/test.component.html'
 })
 export class TestComponent implements OnInit {
   //closeResult: string;

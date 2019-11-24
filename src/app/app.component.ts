@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../../services/auth.service'
-import { UserService } from './../../services/user.service'
-import { MenuService } from './../../services/menu.service'
-import { User } from './../../models/User';
-import { NavLinks } from './../../models/navLinks';
+import { AuthService } from './scripts/services/auth.service'
+import { UserService } from './scripts/services/user.service'
+import { MenuService } from './scripts/services/menu.service'
+import { User } from './scripts/models/User';
+import { NavLinks } from './scripts/models/navLinks';
 import { StateService } from '@uirouter/angular';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './../../../views/app.component.html',
-  styleUrls: ['./../../../css/app.component.css']
+  templateUrl: './app.component.html',
+  styleUrls: ['./css/app.component.css']
 })
 export class AppComponent implements OnInit{
   title = 'demoproj';

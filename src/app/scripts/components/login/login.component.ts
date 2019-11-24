@@ -10,7 +10,7 @@ import { NgForm } from '@angular/forms'
 import { Menu } from '../../models/Menu';
 
 @Component({
-  templateUrl: './../../../views/login.component.html',
+  templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
 

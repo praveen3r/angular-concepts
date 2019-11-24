@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
-  templateUrl: './../../../views/user-details.component.html'  
+  templateUrl: './user-details.component.html'  
 })
 export class UserDetailsComponent implements OnInit {
 

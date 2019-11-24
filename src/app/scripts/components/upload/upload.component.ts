@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  templateUrl: './../../../views/upload.component.html'
+  templateUrl: './upload.component.html'
 })
 export class UploadComponent implements OnInit {
 

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './scripts/components/root/app.component';
+import { AppComponent } from './app.component';
 import { RootModule, UIRouterModule, Transition } from '@uirouter/angular';
 import { LoginComponent } from './scripts/components/login/login.component';
 import { UserComponent } from './scripts/components/user/user.component';
@@ -62,8 +62,8 @@ const rootModule: RootModule = {
       component: UploadComponent
     },
     {
-      name: "Form",
-      component: TestFormComponent
+       name: "Form",
+       component: TestFormComponent
     }
   ],
   otherwise: "/"

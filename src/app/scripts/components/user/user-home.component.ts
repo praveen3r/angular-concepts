@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-home',
-  templateUrl: './../../../views/user-home.component.html',
+  templateUrl: './user-home.component.html',
   styles: []
 })
 export class UserHomeComponent implements OnInit {
