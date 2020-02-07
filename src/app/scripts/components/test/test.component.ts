@@ -3,6 +3,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {TestModalComponent} from './test-modal.component';
 import { Transition } from '@uirouter/core';
 import { HttpService } from './../../services/http.service';
+import { HttpResponse, HttpParams } from '@angular/common/http';
 
 @Component({
   templateUrl: './/test.component.html'
@@ -65,8 +66,9 @@ export class TestComponent implements OnInit {
     }
 
     download(){
-      let value = {test:"test"};
-      this.httpService.downloadFile(value).subscribe((response) => {
+      let params:HttpParams = new HttpParams();
+      params = params.set("rptType","test");
+      this.httpService.downloadFile(params).subscribe((response) => {
        let fileName = "test.xls";
         let downloadLink = document.createElement("a");
 		            	let file = new Blob([response], {type: "arraybuffer"});

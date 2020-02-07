@@ -5,9 +5,8 @@
 export const environment = {
   production: false,
 
-  USER_LIST_SERVICE: "http://localhost:4202/jcb-api/JCBProducer/test/userList",
   WF_INQ_SERVICE: "http://localhost:4202/jcb-api/JCBProducer/test/search",
-  DOWNLOAD_SERVICE: "http://localhost:4202/jcb-api/JCBProducer/test/downloadUserDet"
+  DOWNLOAD_SERVICE: "http://localhost:8082/report/download"
 };
 
 /*

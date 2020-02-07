@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from './../../../environments/environment'
 
@@ -28,8 +28,9 @@ export class HttpService {
     return this.http.post(environment.WF_INQ_SERVICE, data);
   }
 
-  downloadFile(data:any): Observable<any> {
-    return this.http.post(environment.DOWNLOAD_SERVICE, data, {responseType: "arraybuffer"});
+  downloadFile(params:HttpParams): Observable<any> {
+    console.log(params);
+    return this.http.get(environment.DOWNLOAD_SERVICE, {params : params, responseType: "arraybuffer"});
   }
 
 }
